@@ -1,5 +1,6 @@
 require 'rubycas-client'
 
+require 'authlogic_cas/engine'
 require 'authlogic_cas/rails_routes'
 require 'authlogic_cas/single_sign_out/cache'
 require 'authlogic_cas/controller_actions/service'

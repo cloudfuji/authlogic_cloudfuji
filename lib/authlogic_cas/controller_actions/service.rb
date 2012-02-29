@@ -38,7 +38,7 @@ module Authlogic
           render :nothing => true
         end
 
-        # protected
+        protected
 
         def update_persistence_token_for(ido_id)
           user = User.send("find_by_#{::Authlogic::Cas.cas_username_column.to_s}", ido_id)
@@ -49,11 +49,10 @@ module Authlogic
           ticket_name = controller_params[:ticket]
           return nil unless ticket_name
 
-          service_url = bushido_service_url
           if ticket_name =~ /^PT-/
-            ::CASClient::ProxyTicket.new(ticket_name, service_url, controller_params[:renew])
+            ::CASClient::ProxyTicket.new(ticket_name, cas_service_url, controller_params[:renew])
           else
-            ::CASClient::ServiceTicket.new(ticket_name, service_url, controller_params[:renew])
+            ::CASClient::ServiceTicket.new(ticket_name, cas_service_url, controller_params[:renew])
           end
         end
         
