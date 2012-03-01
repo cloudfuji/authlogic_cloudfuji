@@ -3,9 +3,9 @@
 Gem::Specification.new do |gem|
   gem.authors       = ["Akash Manohar J"]
   gem.email         = ["akash@akash.im"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Bushido support for Authlogic}
+  gem.summary       = %q{Bushido support for Authlogic}
+  gem.homepage      = "http://github.com/Bushido/authlogic_bushido"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
