@@ -14,8 +14,7 @@ module Authlogic
             ::Authlogic::Cas::SingleSignOut::Cache.store_unique_cas_id_for_service_ticket(ticket.ticket, unique_cas_id)
           end
 
-          user_session = Authlogic::Cas.authentication_model.new(auth_result)
-          if user_session.save
+          if Authlogic::Cas.authentication_model.create(auth_result)
             redirect_to(root_path)
           else
             redirect_to(root_path, :notice => "Could not login. Try again please.")
@@ -28,8 +27,8 @@ module Authlogic
 
             if service_ticket
               logger.info "Intercepted single-sign-out request for CAS session #{service_ticket}."
-              ido_id = ::Authlogic::Cas::SingleSignOut::Cache.find_unique_cas_id_by_service_ticket(service_ticket)
-              update_persistence_token_for(ido_id)
+              unique_cas_id = ::Authlogic::Cas::SingleSignOut::Cache.find_unique_cas_id_by_service_ticket(service_ticket)
+              update_persistence_token_for(unique_cas_id)
             end
           else
             logger.warn "Ignoring CAS single-sign-out request as feature is not currently enabled."
