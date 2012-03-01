@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Altry</title>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="user_nav">
+
+    <%- if notice %>
+      <div id="notice"><%= notice %></div>
+    <%- end %>
+    
+    <%- if current_user %>
+      <%= current_user.email %>
+      <%= link_to "Logout", logout_path, :method => :delete %>
+    <%- else %>
+      <%= link_to "Register", new_user_path %>
+      <%= link_to "Login", login_path %>
+    <%- end %>
+  </div>
+<%= yield %>
+
+</body>
+</html>

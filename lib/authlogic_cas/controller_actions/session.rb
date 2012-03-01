@@ -9,11 +9,11 @@ module Authlogic
 
         def destroy_cas_session
           @user_session = ::Authlogic::Cas.authentication_model.find
-          @user_session.destroy
+          @user_session.destroy if @user_session
           redirect_to ::Authlogic::Cas.cas_client.logout_url
         end
 
-        # protected
+        protected
 
         def returning_from_cas?
           params[:ticket] || request.referer =~ /^#{::Authlogic::Cas.cas_client.cas_base_url}/

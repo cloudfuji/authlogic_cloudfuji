@@ -14,6 +14,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = "0.9"
 
-  gem.add_dependency('rubycas-client', '2.2.1')
-  gem.add_dependency('authlogic', '>= 0')
+  gem.add_development_dependency 'rspec-rails'
+  gem.add_development_dependency 'sqlite3'
+  gem.add_dependency 'rails'
+  gem.add_dependency 'rubycas-client', '2.2.1'
+  gem.add_dependency 'authlogic'
 end

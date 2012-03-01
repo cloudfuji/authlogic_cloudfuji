@@ -40,8 +40,8 @@ module Authlogic
 
         protected
 
-        def update_persistence_token_for(ido_id)
-          user = User.send("find_by_#{::Authlogic::Cas.cas_username_column.to_s}", ido_id)
+        def update_persistence_token_for(unique_cas_id)
+          user = User.send("find_by_#{::Authlogic::Cas.cas_username_column.to_s}", unique_cas_id)
           user.update_attribute(:persistence_token, ::Authlogic::Random.hex_token) if user
         end
         

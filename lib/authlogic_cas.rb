@@ -1,5 +1,6 @@
+require 'rails'
 require 'rubycas-client'
-
+require 'authlogic/random'
 require 'authlogic_cas/engine'
 require 'authlogic_cas/rails_routes'
 require 'authlogic_cas/single_sign_out/cache'
@@ -66,7 +67,6 @@ module Authlogic
 
       def setup_authentication
         define_authentication_method_for Authlogic::Cas.actor_model
-        add_controller_actions_for Authlogic::Cas.authentication_model
       end
 
 
@@ -95,14 +95,6 @@ module Authlogic
         end
       end
 
-
-      def add_controller_actions_for(model)
-        "#{model.to_s.pluralize}Controller".constantize.instance_eval do
-          include ::Authlogic::Cas::ControllerActions::Service
-        end
-      end
-
-      
       def cas_create_user?
         cas_create_user
       end
