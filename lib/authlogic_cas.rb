@@ -83,9 +83,9 @@ module Authlogic
 
             return nil if not resource
 
-            if resource.respond_to? :bushido_extra_attributes
+            if resource.respond_to? :cloudfuji_extra_attributes
               extra_attributes = ticket.respond_to?(:extra_attributes) ? ticket.extra_attributes : ticket.response.extra_attributes
-              resource.bushido_extra_attributes(extra_attributes)
+              resource.cloudfuji_extra_attributes(extra_attributes)
             end
 
             resource.save
