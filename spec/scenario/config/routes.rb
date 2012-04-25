@@ -2,8 +2,8 @@ Altry::Application.routes.draw do
 
   scope :module => :authlogic do
     scope :module => :cas do
-      match "/login"  => "cas_authentication#new_bushido_session",     :as => "login"
-      match "/logout" => "cas_authentication#destroy_bushido_session", :as => "logout"
+      match "/login"  => "cas_authentication#new_cloudfuji_session",     :as => "login"
+      match "/logout" => "cas_authentication#destroy_cloudfuji_session", :as => "logout"
     end
   end
 

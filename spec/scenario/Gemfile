@@ -2,4 +2,4 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.1'
 gem 'authlogic'
-gem 'authlogic_bushido', :path => "../../"
+gem 'authlogic_cloudfuji', :path => "../../"

@@ -17,8 +17,8 @@ describe "Authlogic::Cas" do
   end
   
   describe "defaults" do
-    it "should have the Bushido CAS server as the default" do
-      subject.cas_base_url.should == "https://bushi.do/cas"
+    it "should have the Cloudfuji CAS server as the default" do
+      subject.cas_base_url.should == "https://cloudfuji.com/cas"
     end
 
     it "should have cas_create_user set to true" do
@@ -118,10 +118,10 @@ describe "Authlogic::Cas" do
       ActorExample.authenticate_with_cas_ticket(@example_ticket).should == @example_user
     end
 
-    it "should call the bushido_extra_attributes method on the actor model if defined" do
+    it "should call the cloudfuji_extra_attributes method on the actor model if defined" do
       @example_user = ActorExample.new
       @example_user.stub!(:save)
-      @example_user.stub!(:bushido_extra_attributes)
+      @example_user.stub!(:cloudfuji_extra_attributes)
       
       @example_ticket.stub!(:has_been_validated?).and_return(true)
       @example_ticket.stub!(:is_valid?).and_return(true)
@@ -129,7 +129,7 @@ describe "Authlogic::Cas" do
       @example_ticket.stub!(:extra_attributes).and_return({})
       ActorExample.stub!(:find).and_return(@example_user)
 
-      @example_user.should_receive(:bushido_extra_attributes)
+      @example_user.should_receive(:cloudfuji_extra_attributes)
 
       ActorExample.authenticate_with_cas_ticket(@example_ticket).should == @example_user
     end
