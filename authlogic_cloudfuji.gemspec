@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "authlogic_cloudfuji"
   gem.require_paths = ["lib"]
-  gem.version       = "0.9.3"
+  gem.version       = "0.9.4"
 
   gem.add_development_dependency 'rspec-rails'
   gem.add_development_dependency 'sqlite3'
