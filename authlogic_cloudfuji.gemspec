@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Akash Manohar J"]
-  gem.email         = ["akash@akash.im"]
+  gem.authors       = ["Sean Grove", "Akash Manohar J"]
+  gem.email         = ["sean@cloudfuji.com", "akash@akash.im"]
   gem.description   = %q{Cloudfuji support for Authlogic}
   gem.summary       = %q{Cloudfuji support for Authlogic}
   gem.homepage      = "http://github.com/Cloudfuji/authlogic_cloudfuji"
